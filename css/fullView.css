@@ -1,0 +1,17 @@
+.fullProductHolder {
+  margin: 25px;
+  width: 525px;
+  height: auto;
+  background-color: powderblue;
+}
+.fullProductHolder .fullTitle {
+  color: #edd15d;
+  text-wrap: pretty;
+  font-size: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.fullProductHolder .fullTitle .fullPrice {
+  color: #edd15d;
+  font-size: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}

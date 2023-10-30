@@ -1,21 +1,20 @@
 var PRODUCTS = [
     {
-        "productTitle": "Coleman 6 Person Dome Tent",
+        "productTitle": "COLEMAN TENT",
         "productThumbImg": "images/tent.png",
         "productFullImg": "images/tent-full.png",
         "productBriefDesc": "A spacious tent suitable for sleeping four adults.",
-        "productFullDesc": "A spacious tent suitable for sleeping four adults. Includes a rain fly and a separate ground cloth. The roomy interior includes Rainfly, Carry Bag, and Screened-In entry.",   
+        "productFullDesc": "Rough it in style in this spacious 4-6 person tent, with 2 doors, 2 windows, 2 vestibules, 2 storage pockets, 1 gear loft, 1 lantern hook, 1 tent carry bag with assembly instructions included. Enjoy more time on your adventure and less time on the setup and teardown of this easy-assembly Coleman tent.",   
         "productPrice": "85.72",
         "productStars": "4.5",
         "productRetailer": "amazon.com",
         "productManufacturer": "Coleman",
         "productCategory": "Tents",
-    
     },
     {
         "productTitle": "2 Pack Water Backpack",
         "productThumbImg": "images/hydrationpak.png",
-        "productFullImg": "hydrationpak-full.png",
+        "productFullImg": "images/hydrationpak-full.png",
         "productBriefDesc": "2 Backpacks with 2L Water Bladder for Hiking, Running, Camping, Climbing, Cycling, Walking, Hunting.",
         "productFullDesc": "2 Backpacks with 2L Water Bladder for Hiking, Running, Camping, Climbing, Cycling, Walking, Hunting. Now featuring a leak-resistant system, but please switch the mouthpiece to OFF when not in use.",   
         "productPrice": "29.99",
@@ -142,8 +141,45 @@ $("#app").append(`<div id="${index}" class="product-holder">
             ${product.productPrice}
         </div>
     </div>
-    </div>`)
+    </div>`);
 });
+initListeners();
+}
+
+function initListeners(){
+    $(".product-holder").click(function(e){
+        let productIndex = e.currentTarget.id;
+
+        $("#app").html(`<div id="${PRODUCTS[productIndex].productTitle}" class="fullProductHolder">
+
+        <div class="productTitlePrice">
+            <div class="fullTitle">${PRODUCTS[productIndex].productTitle}</div>
+            <div class="fullPrice">${PRODUCTS[productIndex].productPrice}</div>
+        </div>
+
+        <div class="fullImage">
+            <img src="${PRODUCTS[productIndex].productFullImg}" alt="">
+        </div>
+        <div class="fullDescription">
+            ${PRODUCTS[productIndex].productFullDesc}
+        </div>            
+        <div class="footnotes">
+        <div class="manuBy">Manufactured by: ${PRODUCTS[productIndex].productManufacturer}</div>
+       
+        <div class="ratingOnline">Rating:  4.5/5</div>
+        </div>
+        <div class="close-button">Close</div>
+    </div>`);
+
+addCloseListener();
+   });     
+}
+
+function addCloseListener(){
+    $(".close-button").click(function(e){
+        $("#app").html("");
+        getProducts();
+    });
 }
 
 $(document).ready(function() {
